@@ -63,6 +63,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ./main
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -87,7 +88,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       id: plan
-      run: terraform plan -input=false
+      run: terraform plan -input=false -no-color
     
     # Add a comment to pull requests with plan results
     - name: add-plan-comment
